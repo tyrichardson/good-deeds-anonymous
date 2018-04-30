@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import axios from 'axios';
 
 import Nav from '../../components/Nav/Nav';
 
@@ -10,9 +11,29 @@ const mapStateToProps = state => ({
 });
 
 class ReadPage extends Component {
-  // componentDidMount() {
-  //   this.props.dispatch({type: USER_ACTIONS.FETCH_USER});
-  // }
+  constructor(props){
+    super(props);
+
+    this.state = {
+      readStory: []
+    };
+  }
+
+  getReadStory = () => {
+    axios.get('/api/reader')
+    .then((response) => {
+      console.log('getReadStory frontend response', response);
+      this.setState({
+        readStory: response.data
+      })
+    }).catch((error) => {
+      console.log('error getReadStory frontend -- no new readStory array in State', error);
+    })
+  }
+
+  componentDidMount() {
+    this.getReadStory();
+  }
 
   // componentDidUpdate() {
   //   if (!this.props.user.isLoading && this.props.user.userName === null) {
@@ -21,21 +42,11 @@ class ReadPage extends Component {
   // }
 
   render() {
-    let content = null;
-
-      content = (
-        <div>
-          <p>
-            Read Page
-          </p>
-        </div>
-      );
-  
 
     return (
       <div>
         <Nav />
-        { content }
+        This text is from ReadPage.js. The axios call is working, and the array is this.state.readStory  
       </div>
     );
   }
