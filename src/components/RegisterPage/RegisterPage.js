@@ -72,8 +72,8 @@ class RegisterPage extends Component {
     return (
       <div>
         {this.renderAlert()}
-        <form onSubmit={this.registerUser}>
-          <h1>Register User</h1>
+        <form className="reg" onSubmit={this.registerUser}>
+          <h3>Register User</h3>
           <div>
             <label htmlFor="username">
               Username:
@@ -102,7 +102,7 @@ class RegisterPage extends Component {
               name="submit"
               value="Register"
             />
-            <Link to="/home">Cancel</Link>
+            <p><Link to="/home">Cancel</Link></p>
           </div>
         </form>
       </div>

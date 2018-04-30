@@ -9,19 +9,21 @@ import {
 import Header from './components/Header/Header';
 import LoginPage from './components/LoginPage/LoginPage';
 import RegisterPage from './components/RegisterPage/RegisterPage';
-import UserPage from './components/UserPage/UserPage';
-import InfoPage from './components/InfoPage/InfoPage';
+import ReadPage from './components/ReadPage/ReadPage';
+import ReadPageWriter from './components/ReadPageWriter/ReadPageWriter';
+import WritePage from './components/WritePage/WritePage';
+import ArchivePage from './components/ArchivePage/ArchivePage';
 
 import './styles/main.css';
 
 const App = () => (
   <div>
-    <Header title="Project Base" />
+    <Header title="Good Deeds Anonymous" />
     <Router>
       <Switch>
-        <Redirect exact from="/" to="/home" />
+        <Redirect exact from="/" to="/read" />
         <Route
-          path="/home"
+          path="/login"
           component={LoginPage}
         />
         <Route
@@ -29,12 +31,20 @@ const App = () => (
           component={RegisterPage}
         />
         <Route
-          path="/user"
-          component={UserPage}
+          path="/home"
+          component={ReadPage}
         />
         <Route
-          path="/info"
-          component={InfoPage}
+          path="/write"
+          component={WritePage}
+        />
+        <Route
+          path="/readWriter"
+          component={ReadPageWriter}
+        />
+        <Route
+          path="/archive"
+          component={ArchivePage}
         />
         {/* OTHERWISE (no path!) */}
         <Route render={() => <h1>404</h1>} />

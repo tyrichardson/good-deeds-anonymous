@@ -6,13 +6,23 @@ const Nav = () => (
     <div>
       <ul>
         <li>
-          <Link to="/user">
-            User Home
+          <Link to="/home">
+            Read
           </Link>
         </li>
         <li>
-          <Link to="/info">
-            Info Page
+          <Link to="/write">
+            Write
+          </Link>
+        </li>
+        <li>
+          <Link to="/archive">
+            Archive
+          </Link>
+        </li>
+        <li>
+          <Link to="/login">
+            Sign-in
           </Link>
         </li>
       </ul>
