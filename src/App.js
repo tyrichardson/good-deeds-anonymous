@@ -25,12 +25,16 @@ const App = () => (
       <Switch>
         <Redirect exact from="/" to="/home" />
         <Route
-          path="/home"
+          path="/login"
           component={LoginPage}
         />
         <Route
           path="/register"
           component={RegisterPage}
+        />
+        <Route
+          path="/home"
+          component={ReadPage}
         />
         <Route
           path="/read"

@@ -36,7 +36,7 @@ class WritePage extends Component {
           <h1
             id="welcome"
           >
-            Welcome, { this.props.user.userName }!
+            Welcome to the Writing page, { this.props.user.userName }!
           </h1>
           <button
             onClick={this.logout}

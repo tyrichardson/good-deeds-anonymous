@@ -36,7 +36,7 @@ class ArchivePage extends Component {
           <h1
             id="archive"
           >
-            Welcome, { this.props.user.userName }!
+            Welcome to your Archive, { this.props.user.userName }!
           </h1>
           <button
             onClick={this.logout}
