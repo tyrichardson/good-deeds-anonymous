@@ -15,7 +15,7 @@ body {
 
 form {
     background-color: #dbd5d5;
-    width: 30%;
+    width: 35%;
     height: 18em;
     margin: 2em auto;
     padding: .01em 1em;
@@ -23,7 +23,7 @@ form {
 }
 
 .reg {
-    height: 16em;
+    height: 20em;
 }
 
 h5 {

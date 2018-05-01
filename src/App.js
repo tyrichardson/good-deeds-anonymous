@@ -23,18 +23,14 @@ const App = () => (
     <Header title="Good Deeds Anonymous" />
     <Router>
       <Switch>
-        <Redirect exact from="/" to="/read" />
+        <Redirect exact from="/" to="/home" />
         <Route
-          path="/login"
+          path="/home"
           component={LoginPage}
         />
         <Route
           path="/register"
           component={RegisterPage}
-        />
-        <Route
-          path="/home"
-          component={ReadPage}
         />
         <Route
           path="/read"

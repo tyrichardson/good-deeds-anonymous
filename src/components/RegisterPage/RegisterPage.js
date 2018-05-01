@@ -8,6 +8,7 @@ class RegisterPage extends Component {
     this.state = {
       username: '',
       password: '',
+      state_usa: '',
       message: '',
     };
   }
@@ -26,10 +27,11 @@ class RegisterPage extends Component {
         body: JSON.stringify({
           username: this.state.username,
           password: this.state.password,
+          state_usa: this.state.state_usa,
         }),
       });
 
-      // making the request to the server to post the country
+      // making the request to the server to post the new user
       fetch(request)
         .then((response) => {
           if (response.status === 201) {
@@ -93,6 +95,18 @@ class RegisterPage extends Component {
                 name="password"
                 value={this.state.password}
                 onChange={this.handleInputChangeFor('password')}
+              />
+            </label>
+          </div>
+          <div>
+            <label htmlFor="state_usa">
+              US State:
+              <input
+                type="text"
+                name="state_usa"
+                placeholder="type full name of state"
+                value={this.state.state_usa}
+                onChange={this.handleInputChangeFor('state_usa')}
               />
             </label>
           </div>
