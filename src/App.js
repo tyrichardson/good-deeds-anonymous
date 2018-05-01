@@ -9,9 +9,11 @@ import {
 import Header from './components/Header/Header';
 import LoginPage from './components/LoginPage/LoginPage';
 import RegisterPage from './components/RegisterPage/RegisterPage';
+//The ReadPage is the unauthenticated Landing page; the ReadPageWriter is the authenticated version of that page.
 import ReadPage from './components/ReadPage/ReadPage';
 import ReadPageWriter from './components/ReadPageWriter/ReadPageWriter';
 import WritePage from './components/WritePage/WritePage';
+
 import ArchivePage from './components/ArchivePage/ArchivePage';
 
 import './styles/main.css';
@@ -32,6 +34,10 @@ const App = () => (
         />
         <Route
           path="/home"
+          component={ReadPage}
+        />
+        <Route
+          path="/read"
           component={ReadPage}
         />
         <Route
