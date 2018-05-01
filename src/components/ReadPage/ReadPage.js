@@ -3,11 +3,10 @@ import { connect } from 'react-redux';
 import axios from 'axios';
 
 import Nav from '../../components/Nav/Nav';
-
-// import { USER_ACTIONS } from '../../redux/actions/userActions';
+import ReadPageList from './ReadPageList';
 
 const mapStateToProps = state => ({
-  user: state.user,
+  state
 });
 
 class ReadPage extends Component {
@@ -15,38 +14,36 @@ class ReadPage extends Component {
     super(props);
 
     this.state = {
-      readStory: []
+      readList: []
     };
   }
 
-  getReadStory = () => {
+  getReadItems = () => {
     axios.get('/api/reader')
     .then((response) => {
       console.log('getReadStory frontend response', response);
       this.setState({
-        readStory: response.data
+        readList: response.data
       })
     }).catch((error) => {
-      console.log('error getReadStory frontend -- no new readStory array in State', error);
+      console.log('error getReadItems frontend', error);
     })
   }
 
   componentDidMount() {
-    this.getReadStory();
+    this.getReadItems();
   }
 
-  // componentDidUpdate() {
-  //   if (!this.props.user.isLoading && this.props.user.userName === null) {
-  //     this.props.history.push('home');
-  //   }
-  // }
-
   render() {
+    let readPageList = this.state.readList.map((story) => {
+      return (<ReadPageList key={story.id} story={story}/>)
+    })
 
     return (
       <div>
         <Nav />
-        This text is from ReadPage.js. The axios call is working, and the array is this.state.readStory  
+          { readPageList }
+        <pre>{JSON.stringify(this.state)}</pre>
       </div>
     );
   }
