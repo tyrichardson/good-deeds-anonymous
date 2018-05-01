@@ -43,7 +43,6 @@ class ReadPage extends Component {
       <div>
         <Nav />
           { readPageList }
-        <pre>{JSON.stringify(this.state)}</pre>
       </div>
     );
   }
