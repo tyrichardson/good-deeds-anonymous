@@ -95,6 +95,7 @@ class LoginPage extends Component {
             />
             <h5>Not yet registered?</h5>
             <Link to="/register">Register</Link>
+            <p><Link to="/home">Cancel</Link></p>
           </div>
         </form>
       </div>
