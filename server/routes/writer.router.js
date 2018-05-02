@@ -47,7 +47,7 @@ router.delete('/:id', (req, res) => {
   console.log('authenticated user DELETE server route for Archive Page, req.params is:', req.params);
   if(req.isAuthenticated()) {
     let queryText = 'DELETE FROM "story" WHERE id = $1 AND writer_id = $2;';
-    pool.query(queryText, [req.params.id, req.writer_id])
+    pool.query(queryText, [req.params.id, req.body.writer_id])
     .then((result) => {
       console.log('DELETE successful', result);
         res.sendStatus(200);
@@ -67,7 +67,7 @@ router.put('/:id', (req, res) => {
   console.log('authenticated user UPDATE server route for Archive Page');
   if(req.isAuthenticated()) {
     let queryText = 'UPDATE story SET story = $1 WHERE id = $2 AND writer_id = $3;';
-    pool.query(queryText, [req.body.story, req.params.id, req.writer_id])
+    pool.query(queryText, [req.body.story, req.params.id, req.body.writer_id])
     .then((result) => {
       console.log('UPDATE successful', result);
         res.sendStatus(201);
