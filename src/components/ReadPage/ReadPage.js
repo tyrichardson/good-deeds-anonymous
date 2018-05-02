@@ -13,32 +13,32 @@ class ReadPage extends Component {
   constructor(props){
     super(props);
 
-    this.state = {
-      readList: []
-    };
+    // this.state = {
+    //   readList: []
+    // };
   }
 
-  getReadItems = () => {
-    axios.get('/api/reader')
-    .then((response) => {
-      console.log('getReadStory frontend response', response);
-      this.setState({
-        readList: response.data
-      })
-    }).catch((error) => {
-      console.log('error getReadItems frontend', error);
-    })
-  }
+  // getReadItems = () => {
+  //   axios.get('/api/reader')
+  //   .then((response) => {
+  //     console.log('getReadStory frontend response', response);
+  //     this.setState({
+  //       readList: response.data
+  //     })
+  //   }).catch((error) => {
+  //     console.log('error getReadItems frontend', error);
+  //   })
+  // }
 
   componentDidMount() {
-    this.getReadItems();
+   // this.getReadItems();
     this.props.dispatch({
       type: 'GET_STORIES'
     })
   }
 
   render() {
-    let readPageList = this.state.readList.map((story) => {
+    let readPageList = this.props.state.getResponseReducer.map((story) => {
       return (<ReadPageList key={story.id} story={story}/>)
     })
 

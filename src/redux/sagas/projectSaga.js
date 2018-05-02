@@ -6,10 +6,11 @@ function* getSaga(action) {
     const getResponse = yield call(axios.get, 'api/reader');
     console.log('getSaga axios.get readerRouter', getResponse);
     yield put({
-      type: 'SET_GET_RESPONSE',
+      type: 'GET_RESPONSE_REDUCER',
       payload: getResponse.data
     })
-  } catch (error)
+  } catch (error) {
+ }
 }
 
-export default projectSaga;
+export default getSaga;
