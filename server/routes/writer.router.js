@@ -26,8 +26,16 @@ pool.query(queryText)
  */
 router.post('/', (req, res) => {
   console.log('authenticated user POST server route for WriterPage');
-  if(req.isAuthenticated()){
-    const queryText = 
+  if(req.isAuthenticated()) {
+    const queryText = 'INSERT INTO "story" (story, writer_id) VALUES ($1, $2);';
+    pool.query(queryText, [req.body.story, req.user.id])
+    .then((result) => {
+      res.sendStatus(201);
+    }).catch((error) => {
+      res.sendStatus(500);
+    })
+    } else {
+      res.send(403);
   }
 });
 

@@ -4,10 +4,11 @@ const router = express.Router();
 
 /**
  * GET for Landing/Read page, unauthenticated users access
+ * story.id = 1 is the first story, the Landing page display
  */
 router.get('/', (req, res) => {
 console.log('unauthenticated user GET route for Landing page');
-let queryText = 'SELECT * from "story";';
+let queryText = 'SELECT * from "story" ORDER BY id ASC;';
 pool.query(queryText)
 .then((result)=> {
   res.send(result.rows);
@@ -21,8 +22,8 @@ pool.query(queryText)
 /**
  * POST route template
  */
-router.post('/', (req, res) => {
+// router.post('/', (req, res) => {
 
-});
+// });
 
 module.exports = router;
