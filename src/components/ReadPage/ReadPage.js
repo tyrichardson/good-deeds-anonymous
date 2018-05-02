@@ -32,6 +32,9 @@ class ReadPage extends Component {
 
   componentDidMount() {
     this.getReadItems();
+    this.props.dispatch({
+      type: 'GET_STORIES'
+    })
   }
 
   render() {

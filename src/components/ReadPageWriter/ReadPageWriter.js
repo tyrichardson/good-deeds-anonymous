@@ -4,6 +4,8 @@ import { connect } from 'react-redux';
 import Nav from '../../components/Nav/Nav';
 import { USER_ACTIONS } from '../../redux/actions/userActions';
 
+//import ReadPageWriterList from './ReadPageWriterList';
+
 const mapStateToProps = state => ({
   user: state.user,
 });
@@ -20,16 +22,22 @@ class ReadPageWriter extends Component {
   }
 
   render() {
+
+    // let readPageWriterList = this.props.readList.map((story) => {
+    //   return (<ReadPageWriterList key={story.id} story={story}/>)
+    // })
+
     let content = null;
 
     if (this.props.user.userName) {
       content = (
         <div>
           <h1
-            id="archive"
+            id="readWriter"
           >
             Welcome to the Writer's Reading page, { this.props.user.userName }!
           </h1>
+          {/* { readPageWriterList } */}
           <button
             onClick={this.logout}
           >
