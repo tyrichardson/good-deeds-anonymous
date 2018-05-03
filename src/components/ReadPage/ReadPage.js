@@ -1,4 +1,4 @@
-// The ReadPage is the Public Reading View/Landing page. No auth is required. The data GET for the site is run when this componentDidMount, via a saga and reducer, and the data is in an arrar at this.props.state.getResponseReducer.
+// The ReadPage is the Public Reading View/Landing page. No auth is required. The data GET for the site is run when this componentDidMount, via a saga and reducer, and the data is in an array at this.props.state.getResponseReducer.
 
 import React, { Component } from 'react';
 import { connect } from 'react-redux';

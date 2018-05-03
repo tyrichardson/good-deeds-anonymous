@@ -1,15 +1,24 @@
-import { call, put } from 'redux-saga/effects';
+import { call, put, takeEvery } from 'redux-saga/effects';
 import axios from 'axios';
 
-function* postSaga(action) {
+function* postStoryCall(action) {
+  console.log('postStoryCall running in postSaga');
+  const config = {
+    headers: {'Content-Type': 'application/json'},
+    withCredentials: true,
+  }
   try {
-    yield call(axios.post, 'api/writer', action.payload);
-    console.log('postSaga axios.post sent to writerRouter');
+    yield call(axios.post, '/api/writer', action.payload, config)
     yield put({
-      type: 'GET_RESPONSE_REDUCER'
+      type: 'GET_STORIES',
     })
   } catch (error) {
+    console.log('error coming from postSaga axios.post call',  error)
  }
+}
+
+function* postSaga() {
+  yield takeEvery('POST_STORY', postStoryCall)
 }
 
 export default postSaga;

@@ -33,7 +33,9 @@ class WritePage extends Component {
     });
 
   }
-  handleClick = () => {
+  handleClick = (event) => {
+    event.preventDefault();
+    console.log('click publish button:', this.state.newStory);
     this.props.dispatch({
       type: "POST_STORY",
       payload: this.state
@@ -57,7 +59,7 @@ class WritePage extends Component {
             Welcome to the Writing page, { this.props.user.userName }!
           </h1>
           <div>
-            <textarea value={this.state.newStory} onChange={this.handleChange} autoFocus row="4" cols="12" form="writerInput" placeholder="type your story here">
+            <textarea value={this.state.newStory} onChange={this.handleChange} autoFocus row="4" cols="12" placeholder="type your story here">
             </textarea>
           </div>
           <button type="submit" onClick={this.handleClick}>Publish</button>

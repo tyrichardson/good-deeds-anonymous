@@ -6,7 +6,6 @@ const router = express.Router();
  GET Route for authenticated users access to ReadPageWriter view
  Also used for Admin to check on stories marked inappropriate
  NOTE: may not be needed; may use GET from reader.router with logic on client side
- **/
 router.get('/', (req, res) => {
 console.log('authenticated user GET server route for ReadPageWriter');
 if(req.isAuthenticated()){
@@ -26,13 +25,14 @@ pool.query(queryText)
  POST for authenticated users WriterPage--stories published by Writers
  **/
 router.post('/', (req, res) => {
-  console.log('authenticated user POST server route for WriterPage');
+  console.log('authenticated user POST server route for WriterPage', req.body);
   if(req.isAuthenticated()) {
     const queryText = 'INSERT INTO "story" (story, writer_id) VALUES ($1, $2);';
-    pool.query(queryText, [req.body.story, req.user.id])
+    pool.query(queryText, [req.body.newStory, req.user.id])
     .then((result) => {
       res.sendStatus(201);
     }).catch((error) => {
+      console.log('post got to the catch in backend router:', error)
       res.sendStatus(500);
     })
     } else {
