@@ -8,6 +8,7 @@ import ReadPageWriterList from './ReadPageWriterList';
 
 const mapStateToProps = state => ({
   user: state.user,
+  state
 });
 
 class ReadPageWriter extends Component {
@@ -23,7 +24,7 @@ class ReadPageWriter extends Component {
 
   render() {
 
-    let readPageWriterList = this.props.state.getResponseReducer.map((story) => {
+    const readPageWriterList = this.props.state.getResponseReducer.map((story) => {
       return (<ReadPageWriterList key={story.id} story={story}/>)
     })
 
@@ -45,7 +46,7 @@ class ReadPageWriter extends Component {
           </button>
         </div>
       );
-    }
+    } 
 
     return (
       <div>
