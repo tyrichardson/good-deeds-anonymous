@@ -1,3 +1,5 @@
+//The ReadPageWriter is the reading page for a logged-in user
+
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
@@ -24,7 +26,7 @@ class ReadPageWriter extends Component {
 
   render() {
 
-    const readPageWriterList = this.props.state.getResponseReducer.map((story) => {
+    const readPageWriterList = this.props.state.getResponseReducer.reverse().map((story) => {
       return (<ReadPageWriterList key={story.id} story={story}/>)
     })
 

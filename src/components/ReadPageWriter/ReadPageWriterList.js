@@ -1,3 +1,5 @@
+//this generates the DOM display of the individual stories mapped from the array in reduxState
+
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
