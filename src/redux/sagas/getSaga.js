@@ -4,7 +4,7 @@ import axios from 'axios';
 function* getResponseCall(action) {
   try {
     const getResponse = yield call(axios.get, '/api/reader');
-    console.log('getSaga axios.get sent to readerRouter', getResponse);
+    console.log('getSaga axios.get sent to readerRouter:', getResponse);
     yield put({
       type: 'GET_RESPONSE_REDUCER',
       payload: getResponse.data

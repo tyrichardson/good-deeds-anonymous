@@ -11,12 +11,8 @@ const mapStateToProps = state => ({
 });
 
 class ReadPage extends Component {
-//   constructor(props){
-//     super(props);
-//   }
 
   componentDidMount() {
-   // this.getReadItems();
     this.props.dispatch({
       type: 'GET_STORIES'
     })

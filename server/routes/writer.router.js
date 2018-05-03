@@ -6,6 +6,7 @@ const router = express.Router();
  GET Route for authenticated users access to ReadPageWriter view
  Also used for Admin to check on stories marked inappropriate
  NOTE: may not be needed; may use GET from reader.router with logic on client side
+ **/
 router.get('/', (req, res) => {
 console.log('authenticated user GET server route for ReadPageWriter');
 if(req.isAuthenticated()){

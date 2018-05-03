@@ -5,6 +5,7 @@ import { connect } from 'react-redux';
 
 import Nav from '../../components/Nav/Nav';
 import { USER_ACTIONS } from '../../redux/actions/userActions';
+import { triggerLogout } from '../../redux/actions/loginActions';
 
 import ReadPageWriterList from './ReadPageWriterList';
 
@@ -16,6 +17,9 @@ const mapStateToProps = state => ({
 class ReadPageWriter extends Component {
   componentDidMount() {
     this.props.dispatch({type: USER_ACTIONS.FETCH_USER});
+    this.props.dispatch({
+      type: 'GET_LOGGED_IN_READ'
+    })
   }
 
   componentDidUpdate() {
@@ -24,9 +28,14 @@ class ReadPageWriter extends Component {
     }
   }
 
+  logout = () => {
+    this.props.dispatch(triggerLogout());
+    // this.props.history.push('home');
+  }
+
   render() {
 
-    const readPageWriterList = this.props.state.getResponseReducer.reverse().map((story) => {
+    const readPageWriterList = this.props.state.getLoggedInResponseReducer.map((story) => {
       return (<ReadPageWriterList key={story.id} story={story}/>)
     })
 
