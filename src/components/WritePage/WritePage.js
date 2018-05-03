@@ -9,9 +9,14 @@ import { triggerLogout } from '../../redux/actions/loginActions';
 
 const mapStateToProps = state => ({
   user: state.user,
+  state
 });
 
 class WritePage extends Component {
+  state = {
+    newStory: '',
+  }
+
   componentDidMount() {
     this.props.dispatch({ type: USER_ACTIONS.FETCH_USER });
   }
@@ -20,6 +25,19 @@ class WritePage extends Component {
     if (!this.props.user.isLoading && this.props.user.userName === null) {
       this.props.history.push('home');
     }
+  }
+
+  handleChange = (event) => {
+    this.setState({
+      newStory: event.target.value,
+    });
+
+  }
+  handleClick = () => {
+    this.props.dispatch({
+      type: "POST_STORY",
+      payload: this.state
+    });
   }
 
   logout = () => {
@@ -38,6 +56,12 @@ class WritePage extends Component {
           >
             Welcome to the Writing page, { this.props.user.userName }!
           </h1>
+          <div>
+            <textarea value={this.state.newStory} onChange={this.handleChange} autoFocus row="4" cols="12" form="writerInput" placeholder="type your story here">
+            </textarea>
+          </div>
+          <button type="submit" onClick={this.handleClick}>Publish</button>
+          <br />
           <button
             onClick={this.logout}
           >
