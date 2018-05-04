@@ -9,6 +9,7 @@ import { USER_ACTIONS } from '../../redux/actions/userActions';
 import { triggerLogout } from '../../redux/actions/loginActions';
 
 import ArchivePageList from './ArchivePageList';
+import FavoritesPageList from './FavoritesPageList';
 
 
 const mapStateToProps = state => ({
@@ -22,6 +23,9 @@ class ArchivePage extends Component {
     this.props.dispatch({
       type:'GET_WRITER_STORIES_SAGA'
     });
+    this.props.dispatch({
+      type:'GET_FAVORITES'
+    })
   }
 
   componentDidUpdate() {
@@ -39,7 +43,11 @@ class ArchivePage extends Component {
   
     const archivePageList = this.props.state.getWriterStoriesReducer.map((story) => {
       return (<ArchivePageList key={story.id} story={story}/>)
-  })
+    })
+
+    const favoritesPageList = this.props.state.getFavoritesReducer.map((story) => {
+      return (<FavoritesPageList key={story.id} story={story}/>)
+    })
 
     let content = null;
 
@@ -53,11 +61,14 @@ class ArchivePage extends Component {
             Welcome to your Archive, { this.props.user.userName }!
           </h1>
           </div>
-          <div id-="writerStories">
+          <h2>Your Stories</h2>
+          <div id="writerStories">
           { archivePageList }
           </div>
           <div id="favorites">
-            <h1>Favorites</h1>
+            <h2>Your Favorites</h2>
+          { favoritesPageList }
+            <h1></h1>
           </div>
           <div>
           <button
@@ -78,6 +89,8 @@ class ArchivePage extends Component {
     );
   }
 }
+
+
 
 // this allows us to use <App /> in index.js
 export default connect(mapStateToProps)(ArchivePage);
