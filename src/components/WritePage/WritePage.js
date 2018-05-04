@@ -40,6 +40,9 @@ class WritePage extends Component {
       type: "POST_STORY",
       payload: this.state
     });
+    this.setState({
+      newStory: ''
+    });
   }
 
   logout = () => {

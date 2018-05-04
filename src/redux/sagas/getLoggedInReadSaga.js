@@ -11,9 +11,10 @@ function* getLoggedInResponseCall(action) {
     const getLoggedInResponse = yield call(axios.get, '/api/writer');
     console.log('getLoggedInReadSaga axios.get sent to writerRouter:', getLoggedInResponse);
     yield put({
-      type: 'GET_LOGGED_IN_RESPONSE_REDUCER',
+      type: 'GET_LOGGED_IN_ RESPONSE_REDUCER',
       payload: getLoggedInResponse.data
     })
+    // yield call(this.props.history.push('/readWriter'));
   } catch (error) {
     console.log('error in getLoggedInReadSaga axios get call', error);
  }

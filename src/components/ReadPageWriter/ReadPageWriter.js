@@ -17,9 +17,9 @@ const mapStateToProps = state => ({
 class ReadPageWriter extends Component {
   componentDidMount() {
     this.props.dispatch({type: USER_ACTIONS.FETCH_USER});
-    this.props.dispatch({
-      type: 'GET_LOGGED_IN_READ'
-    })
+    // this.props.dispatch({
+    //   type: 'GET_LOGGED_IN_READ'
+    // })
   }
 
   componentDidUpdate() {
@@ -35,7 +35,7 @@ class ReadPageWriter extends Component {
 
   render() {
 
-    const readPageWriterList = this.props.state.getLoggedInResponseReducer.map((story) => {
+    const readPageWriterList = this.props.state.getResponseReducer.reverse().map((story) => {
       return (<ReadPageWriterList key={story.id} story={story}/>)
     })
 

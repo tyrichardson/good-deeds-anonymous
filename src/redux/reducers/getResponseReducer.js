@@ -1,5 +1,3 @@
-import { combineReducers } from 'redux';
-
 const getResponseReducer = (state = [], action) => {
   switch (action.type) {
     case 'GET_RESPONSE_REDUCER' :
