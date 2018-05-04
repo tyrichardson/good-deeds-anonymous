@@ -3,15 +3,14 @@ const pool = require('../modules/pool');
 const router = express.Router();
 
 /**
- GET Route for authenticated users access to ReadPageWriter view
+ GET Route for authenticated users access to populate Archive view
  Also used for Admin to check on stories marked inappropriate
- NOTE: may not be needed; may use GET from reader.router with logic on client side
  **/
 router.get('/', (req, res) => {
-console.log('authenticated user GET server route for ReadPageWriter');
+console.log('authenticated user GET server route for Archive view');
 if(req.isAuthenticated()){
-let queryText = 'SELECT * from "story" ORDER BY id DESC;';
-pool.query(queryText)
+let queryText = 'SELECT "story" FROM "story" JOIN "favorite" ON "story"."id" = "favorite"."story_id" JOIN "writer" ON "writer"."id" = "favorite"."writer_id" WHERE "favorite"."writer_id" = $1 ORDER BY "story"."id" DESC;';
+pool.query(queryText, [req.user.id])
 .then((result)=> {
   res.send(result.rows);
   console.log('writerRouter result.rows', result.rows);

@@ -1,4 +1,4 @@
-//this generates the DOM display of the individual stories mapped from the array in reduxState
+//this generates the DOM display of the individual stories mapped from the array in redux State for public landing page and readWriter page
 
 import React, { Component } from 'react';
 import { connect } from 'react-redux';

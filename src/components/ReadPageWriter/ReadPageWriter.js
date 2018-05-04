@@ -17,9 +17,6 @@ const mapStateToProps = state => ({
 class ReadPageWriter extends Component {
   componentDidMount() {
     this.props.dispatch({type: USER_ACTIONS.FETCH_USER});
-    // this.props.dispatch({
-    //   type: 'GET_LOGGED_IN_READ'
-    // })
   }
 
   componentDidUpdate() {
@@ -30,7 +27,7 @@ class ReadPageWriter extends Component {
 
   logout = () => {
     this.props.dispatch(triggerLogout());
-    // this.props.history.push('home');
+    this.props.history.push('home');
   }
 
   render() {
