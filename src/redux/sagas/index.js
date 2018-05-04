@@ -3,7 +3,7 @@ import userSaga from './userSaga';
 import loginSaga from './loginSaga';
 import getSaga from './getSaga';
 import postSaga from './postSaga';
-import getLoggedInReadSaga from './getLoggedInReadSaga';
+import getWriterStoriesSaga from './getWriterStoriesSaga';
 
 
 export default function* rootSaga() {
@@ -12,7 +12,7 @@ export default function* rootSaga() {
     loginSaga(),
     getSaga(),
     postSaga(),
-    getLoggedInReadSaga()
+    getWriterStoriesSaga()
     // watchIncrementAsync()
   ]);
 }

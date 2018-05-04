@@ -43,7 +43,7 @@ class WritePage extends Component {
     this.setState({
       newStory: ''
     });
-  }
+}
 
   logout = () => {
     this.props.dispatch(triggerLogout());
