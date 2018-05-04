@@ -20,8 +20,8 @@ class ArchivePage extends Component {
   componentDidMount() {
     this.props.dispatch({ type: USER_ACTIONS.FETCH_USER });
     this.props.dispatch({
-      type:'GET_WRITER_STORIES'
-    })
+      type:'GET_WRITER_STORIES_SAGA'
+    });
   }
 
   componentDidUpdate() {
@@ -37,8 +37,8 @@ class ArchivePage extends Component {
 
   render() {
   
-    const archivePageList = this.props.state.getWriterStoriesReducer.map((writerStory) => {
-      return (<ArchivePageList key={writerStory.id} story={writerStory}/>)
+    const archivePageList = this.props.state.getWriterStoriesReducer.map((story) => {
+      return (<ArchivePageList key={story.id} story={story}/>)
   })
 
     let content = null;

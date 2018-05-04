@@ -13,7 +13,7 @@ class ArchivePageList extends Component {
     
     return (
       <div>
-          <p>{this.props.writerStory.story}</p>
+          <p>{this.props.story.story}</p>
       </div>
     );
   }

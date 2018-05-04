@@ -7,7 +7,8 @@ const router = express.Router();
  Also used for Admin to check on stories marked inappropriate
  **/
 router.get('/', (req, res) => {
-console.log('authenticated user GET server route for Archive view');
+console.log('authenticated user GET server route for Archive view:', req.isAuthenticated());
+console.log('user is:', req.user);
 if(req.isAuthenticated()){
 let queryText = 'SELECT "story" FROM "story" JOIN "favorite" ON "story"."id" = "favorite"."story_id" JOIN "writer" ON "writer"."id" = "favorite"."writer_id" WHERE "favorite"."writer_id" = $1 ORDER BY "story"."id" DESC;';
 pool.query(queryText, [req.user.id])

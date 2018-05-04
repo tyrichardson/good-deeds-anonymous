@@ -2,11 +2,16 @@ import { call, put, takeEvery } from 'redux-saga/effects';
 import axios from 'axios';
 
 function* getWriterStoriesResponseCall(action) {
+  console.log('getWriterStoriesResponceCall running in writerstories saga');
+  const config = {
+    headers: {'Content-Type': 'application/json'},
+    withCredentials: true,
+  }
   try {
-    const getResponse = yield call(axios.get, '/api/writer');
-    console.log('getWriterStoriesSaga axios.get sent to writerRouter:', getResponse);
+    const getResponse = yield call(axios.get, '/api/writer', config);
+    console.log('getWriterStoriesSaga axiosGET to writerRouter, getResponse:', getResponse);
     yield put({
-      type: 'GET_WRITER_STORIES_REDUCER',
+      type: 'GET_WRITER_STORIES',
       payload: getResponse.data
     })
   } catch (error) {
@@ -15,7 +20,7 @@ function* getWriterStoriesResponseCall(action) {
 }
 
 function* getWriterStoriesSaga() {
-    yield takeEvery('GET_WRITER_STORIES', getWriterStoriesResponseCall)
+    yield takeEvery('GET_WRITER_STORIES_SAGA', getWriterStoriesResponseCall)
 }
 
 export default getWriterStoriesSaga;
