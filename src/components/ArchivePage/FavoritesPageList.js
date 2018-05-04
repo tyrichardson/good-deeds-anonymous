@@ -1,4 +1,4 @@
-//this generates the DOM display of the individual stories by logged-in user on the Archive page
+//this generates the DOM display of the individual favotires by logged-in user on the Archive page
 
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
@@ -7,7 +7,7 @@ const mapStateToProps = state => ({
   state
 });
 
-class ArchivePageList extends Component {
+class FavoritesPageList extends Component {
 
   render() {
     
@@ -20,4 +20,4 @@ class ArchivePageList extends Component {
 }
 
 // this allows us to use <App /> in index.js
-export default connect(mapStateToProps)(ArchivePageList);
+export default connect(mapStateToProps)(FavoritesPageList);

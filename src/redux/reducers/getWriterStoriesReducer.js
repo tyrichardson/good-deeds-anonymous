@@ -8,4 +8,3 @@ const getWriterStoriesReducer = (state = [], action) => {
 }
 
 export default getWriterStoriesReducer;
-
