@@ -9,11 +9,20 @@ const mapStateToProps = state => ({
 
 class ArchivePageList extends Component {
 
+  handleClickDelete = () => {
+    console.log('clicked delete button', this.props.story);
+    this.props.dispatch({
+      type: 'DELETE_ARCHIVE_STORY',
+      payload: this.props.story
+    })
+  }
+
   render() {
     
     return (
       <div>
           <p>{this.props.story.story}</p>
+          <button onClick={this.handleClickDelete}>Delete</button>
       </div>
     );
   }

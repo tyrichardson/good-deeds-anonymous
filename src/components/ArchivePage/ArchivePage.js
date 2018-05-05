@@ -68,7 +68,6 @@ class ArchivePage extends Component {
           <div id="favorites">
             <h2>Your Favorites</h2>
           { favoritesPageList }
-            <h1></h1>
           </div>
           <div>
           <button
