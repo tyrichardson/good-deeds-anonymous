@@ -9,8 +9,12 @@ function* deleteArchiveStoryCall(action) {
   }
   try {
     yield call(axios.delete, `api/writer/${action.payload.id}`, config)
+    console.log("delete saga axios call:", action.payload.id);
     yield put({
-      type: 'GET_WRITER_STORIES'
+      type: 'GET_WRITER_STORIES_SAGA'
+    })
+    yield put({
+      type: 'GET_FAVORITES'
     })
   }
     catch(error){

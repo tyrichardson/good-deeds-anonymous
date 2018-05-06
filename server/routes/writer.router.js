@@ -26,7 +26,7 @@ router.get('/favorites', (req, res) => {
   console.log('authenticated user GET server route for favorites in Archive view:', req.isAuthenticated());
   console.log('writerGET req.user is:', req.user);
   if(req.isAuthenticated()){
-  let queryText = 'SELECT "story" FROM "story" JOIN "favorite" ON "story"."id" = "favorite"."story_id" JOIN "writer" ON "writer"."id" = "favorite"."writer_id" WHERE "favorite"."writer_id" = $1 ORDER BY "story"."id" DESC;';
+  let queryText = 'SELECT "story", "favorite"."id", "favorite"."story_id", "favorite"."writer_id" FROM "story" JOIN "favorite" ON "story"."id" = "favorite"."story_id" JOIN "writer" ON "writer"."id" = "favorite"."writer_id" WHERE "favorite"."writer_id" = $1 ORDER BY "story"."id" DESC;';
   pool.query(queryText, [req.user.id])
   .then((result)=> {
     res.send(result.rows);
@@ -63,8 +63,8 @@ DELETE for authenticated users to delete a story that they published
 router.delete('/:id', (req, res) => {
   console.log('authenticated user DELETE server route for Archive Page, req.params is:', req.params);
   if(req.isAuthenticated()) {
-    let queryText = 'DELETE FROM "story" WHERE id = $1 AND writer_id = $2;';
-    pool.query(queryText, [req.params.id, req.body.writer_id])
+    let queryText = 'DELETE FROM "story" WHERE id = $1;';
+    pool.query(queryText, [req.params.id])
     .then((result) => {
       console.log('DELETE successful', result);
         res.sendStatus(200);
