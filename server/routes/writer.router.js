@@ -30,12 +30,28 @@ router.get('/favorites', (req, res) => {
   pool.query(queryText, [req.user.id])
   .then((result)=> {
     res.send(result.rows);
-    console.log('writerRouter result.rows', result.rows);
+    console.log('writerRouter result.rows:', result.rows);
   })
   .catch((error) => {
     res.sendStatus(500);
   }); 
   }
+  });
+
+  router.get('/editStory', (req, res) => {
+    console.log('authenticated user GET of story from Archive page for editing:', req.isAuthenticated());
+    console.log('editStory req.user is:', req.user);
+    if(req.isAuthenticated()) {
+      let queryText = 'SELECT "story" FROM "story" WHERE "id" = $1';
+      pool.query(queryText, [req.user.id])
+      .then((result) => {
+        res.send(result.rows);
+        console.log('writerRoute editStory result.rows:', result.rows);
+      })
+      .catch((error) => {
+        res.sendStatus(500);
+      });
+    }
   });
 
 /**

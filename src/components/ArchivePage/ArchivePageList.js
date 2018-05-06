@@ -9,6 +9,14 @@ const mapStateToProps = state => ({
 
 class ArchivePageList extends Component {
 
+  handleClickEdit = () => {
+    console.log('clicked edit button', this.props.story);
+    this.props.dispatch({
+      type: 'EDIT_ARCHIVE_STORY',
+      payload: this.props.story
+    })
+  }
+  
   handleClickDelete = () => {
     console.log('clicked delete button', this.props.story);
     this.props.dispatch({
@@ -22,6 +30,7 @@ class ArchivePageList extends Component {
     return (
       <div>
           <p>{this.props.story.story}</p>
+          <button onClick={this.handleClickEdit}>Edit</button>
           <button onClick={this.handleClickDelete}>Delete</button>
       </div>
     );

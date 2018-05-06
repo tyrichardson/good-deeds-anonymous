@@ -4,6 +4,7 @@ import login from './loginReducer';
 import getResponseReducer from './getResponseReducer';
 import getWriterStoriesReducer from './getWriterStoriesReducer';
 import getFavoritesReducer from './getFavoritesReducer';
+import getEditStoryReducer from './getEditStoryReducer';
 
 const store = combineReducers({
   user,
@@ -11,6 +12,7 @@ const store = combineReducers({
   getResponseReducer,
   getWriterStoriesReducer,
   getFavoritesReducer,
+  getEditStoryReducer,
 });
 
 export default store;
