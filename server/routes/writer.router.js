@@ -97,6 +97,6 @@ router.put('/:id', (req, res) => {
   }
 });
 
-
+// Need routes for adding favorites from writer's read page and for updating (deleting) favorites from archive page
 
 module.exports = router;

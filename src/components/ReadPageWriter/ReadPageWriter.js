@@ -17,7 +17,10 @@ const mapStateToProps = state => ({
 class ReadPageWriter extends Component {
   componentDidMount() {
     this.props.dispatch({type: USER_ACTIONS.FETCH_USER});
-  }
+    this.props.dispatch({
+      type:'GET_STORIES'
+  });
+}
 
   componentDidUpdate() {
     if (!this.props.user.isLoading && this.props.user.userName === null) {

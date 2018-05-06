@@ -18,7 +18,7 @@ export default function* rootSaga() {
     getWriterStoriesSaga(),
     getFavoritesSaga(),
     deleteArchiveStorySaga(),
-    updateArchiveFavoriteSaga()
+    updateArchiveFavoriteSaga(),
     // watchIncrementAsync()
   ]);
 }

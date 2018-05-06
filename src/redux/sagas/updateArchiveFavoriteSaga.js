@@ -22,7 +22,7 @@ function* updateArchiveFavoriteCall(action) {
     }
 }
 
-function* updateArchiveStorySaga() {
+function* updateArchiveFavoriteSaga() {
   yield takeEvery('UPDATE_ARCHIVE_FAVORITE', updateArchiveFavoriteCall)
 }
 
