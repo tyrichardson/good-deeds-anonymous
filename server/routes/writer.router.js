@@ -42,7 +42,7 @@ router.get('/favorites', (req, res) => {
     console.log('authenticated user GET of story from Archive page for editing:', req.isAuthenticated());
     console.log('editStory req.user is:', req.user);
     if(req.isAuthenticated()) {
-      let queryText = 'SELECT "story" FROM "story" WHERE "id" = $1';
+      let queryText = 'SELECT * FROM "story" WHERE "story" = $1';
       pool.query(queryText, [req.user.id])
       .then((result) => {
         res.send(result.rows);

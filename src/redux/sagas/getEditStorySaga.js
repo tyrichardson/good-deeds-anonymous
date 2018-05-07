@@ -8,7 +8,7 @@ function* getEditStoryCall(action) {
     withCredentials: true,
   }
   try {
-    const getResponse = yield call(axios.get, `/api/writer/editStory/${action.payload.id}`, action.payload, config)
+    const getResponse = yield call(axios.get, '/api/writer/editStory', action.payload, config);
     console.log('return from editStory GET router:', getResponse);
     yield put({
       type: 'GET_EDIT_STORY_REDUCER',
