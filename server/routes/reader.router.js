@@ -7,12 +7,12 @@ const router = express.Router();
  * story.id = 1 is the first story, the Landing page display
  */
 router.get('/', (req, res) => {
-console.log('unauthenticated user GET route for Landing page');
+// console.log('unauthenticated user GET route for Landing page');
 let queryText = 'SELECT "story"."id", "story", "writer_id", "username", "state_usa", "inappropriate" FROM "story" JOIN "writer" ON "writer"."id" = "story"."writer_id" ORDER BY "story"."id" ASC;';
 pool.query(queryText)
 .then((result)=> {
   res.send(result.rows);
-  console.log('readerRouter result.rows', result.rows);
+  // console.log('readerRouter result.rows', result.rows);
 })
 .catch((error) => {
   res.sendStatus(500);

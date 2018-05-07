@@ -9,10 +9,7 @@ function* deleteArchiveFavoriteCall(action) {
   }
   try {
     yield call(axios.delete, `api/writer/favorite/${action.payload.id}`, config)
-    console.log("delete favorite saga axios call:", action.payload.id);
-    yield put({
-      type: 'GET_WRITER_STORIES_SAGA'
-    })
+    console.log("delete favorite saga axios call:", action.payload);
     yield put({
       type: 'GET_FAVORITES'
     })

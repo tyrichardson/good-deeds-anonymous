@@ -1,4 +1,4 @@
-import { call, put, takeEvery } from 'redux-saga/effects';
+import { call, takeEvery } from 'redux-saga/effects';
 import axios from 'axios';
 
 function* addFavoriteCall(action) {
@@ -8,10 +8,7 @@ function* addFavoriteCall(action) {
     withCredentials: true,
   }
   try {
-    yield call(axios.post, '/api/writer/fav', action.payload, config)
-    yield put({
-      type: 'ADD_FAVORITE',
-    })
+    yield call(axios.post, '/api/writer/fav', action.payload, config) 
   } catch (error) {
     console.log('error coming from addFavoriteSaga axios.post call',  error)
  }
