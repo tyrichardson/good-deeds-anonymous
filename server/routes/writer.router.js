@@ -96,11 +96,11 @@ router.delete('/:id', (req, res) => {
 /**
 DELETE for authenticated users to delete a favorite from their Archive page
 **/
-router.delete('/favorite:id', (req, res) => {
+router.delete('/favorite/:id', (req, res) => {
   console.log('authenticated user DELETE favorite server route for Archive Page, req.params is:', req.params);
   if(req.isAuthenticated()) {
-    let queryText = 'DELETE FROM "favorite" WHERE id = $1;';
-    pool.query(queryText, [req.params.id])
+    let queryText = 'DELETE FROM "favorite" WHERE id = $1 AND writer_id = $2;';
+    pool.query(queryText, [req.params.id, req.body.writer_id])
     .then((result) => {
       console.log('DELETE successful', result);
         res.sendStatus(200);
