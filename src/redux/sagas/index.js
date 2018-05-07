@@ -8,6 +8,7 @@ import getFavoritesSaga from './getFavoritesSaga';
 import deleteArchiveStorySaga from './deleteArchiveStorySaga';
 import deleteArchiveFavoriteSaga from './deleteArchiveFavoriteSaga';
 import getEditStorySaga from './getEditStorySaga';
+import addFavoriteSaga from './addFavoriteSaga';
 
 
 export default function* rootSaga() {
@@ -21,6 +22,7 @@ export default function* rootSaga() {
     deleteArchiveStorySaga(),
     deleteArchiveFavoriteSaga(),
     getEditStorySaga(),
+    addFavoriteSaga(),
     // watchIncrementAsync()
   ]);
 }

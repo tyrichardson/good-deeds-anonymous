@@ -9,7 +9,7 @@ const mapStateToProps = state => ({
 
 class ReadPageWriterList extends Component {
 
-  handleClickUpdate = () => {
+  handleClickFavorite = (event) => {
     console.log('clicked favorite button', this.props.story);
     this.props.dispatch({
       type: 'ADD_FAVORITE',
@@ -22,7 +22,7 @@ class ReadPageWriterList extends Component {
     return (
       <div>
           <p>{this.props.story.story}</p>
-          <button onClick={this.handleClickUpdate}>Favorite</button>
+          <button onClick={this.handleClickFavorite}>Favorite</button>
       </div>
     );
   }
