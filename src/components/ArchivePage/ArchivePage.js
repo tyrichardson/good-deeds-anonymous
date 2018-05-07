@@ -55,18 +55,18 @@ class ArchivePage extends Component {
       content = (
         <div>
           <div>
-          <h1
+          <h3
             id="archive"
           >
             Welcome to your Archive, { this.props.user.userName }!
-          </h1>
+          </h3>
           </div>
-          <h2>Your Stories</h2>
+          <h4>Your Stories</h4>
           <div id="writerStories">
           { archivePageList }
           </div>
           <div id="favorites">
-            <h2>Your Favorites</h2>
+            <h4>Your Favorites</h4>
           { favoritesPageList }
           </div>
           <div>

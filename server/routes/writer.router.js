@@ -94,6 +94,26 @@ router.delete('/:id', (req, res) => {
 });
 
 /**
+DELETE for authenticated users to delete a favorite from their Archive page
+**/
+router.delete('/favorite:id', (req, res) => {
+  console.log('authenticated user DELETE favorite server route for Archive Page, req.params is:', req.params);
+  if(req.isAuthenticated()) {
+    let queryText = 'DELETE FROM "favorite" WHERE id = $1;';
+    pool.query(queryText, [req.params.id])
+    .then((result) => {
+      console.log('DELETE successful', result);
+        res.sendStatus(200);
+    }).catch((error) => {
+      console.log('error in DELETE, server side', error);
+      res.sendStatus(500);
+    })
+  } else {
+    res.sendStatus(403);
+  }
+});
+
+/**
  UPDATE for authenticated users to edit a story they published
  **/
 router.put('/:id', (req, res) => {

@@ -1,3 +1,5 @@
+
+//This runs when archive page mounts to populate writer's list a stories marked as favorites.
 import { call, put, takeEvery } from 'redux-saga/effects';
 import axios from 'axios';
 

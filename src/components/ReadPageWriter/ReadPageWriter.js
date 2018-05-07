@@ -44,11 +44,11 @@ class ReadPageWriter extends Component {
     if (this.props.user.userName) {
       content = (
         <div>
-          <h1
+          <h3
             id="readWriter"
           >
             Welcome to the Writer's Reading page, { this.props.user.userName }!
-          </h1>
+          </h3>
           { readPageWriterList }
           <button
             onClick={this.logout}
