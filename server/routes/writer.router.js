@@ -116,7 +116,7 @@ router.delete('/:id', (req, res) => {
 DELETE for authenticated users to delete a favorite from their Archive page
 **/
 router.delete('/favorite/:id', (req, res) => {
-  console.log('authenticated user DELETE favorite server route for Archive Page, req.params is:', req.params);
+  // console.log('authenticated user DELETE favorite server route for Archive Page, req.params is:', req.params);
   if(req.isAuthenticated()) {
     let queryText = 'DELETE FROM "favorite" WHERE id = $1;';
     pool.query(queryText, [req.params.id])
@@ -124,7 +124,7 @@ router.delete('/favorite/:id', (req, res) => {
       console.log('DELETE successful', result);
         res.sendStatus(200);
     }).catch((error) => {
-      console.log('error in DELETE, server side', error);
+      // console.log('error in DELETE, server side', error);
       res.sendStatus(500);
     })
   } else {
@@ -136,10 +136,10 @@ router.delete('/favorite/:id', (req, res) => {
  UPDATE for authenticated users to edit a story they published
  **/
 router.put('/:id', (req, res) => {
-  console.log('authenticated user UPDATE server route for Archive Page');
+  console.log('authenticated user UPDATE server route for edit in Archive Page');
   if(req.isAuthenticated()) {
     let queryText = 'UPDATE story SET story = $1 WHERE id = $2 AND writer_id = $3;';
-    pool.query(queryText, [req.body.story, req.params.id, req.body.writer_id])
+    pool.query(queryText, [req.body.story, req.params.id, req.user.id])
     .then((result) => {
       console.log('UPDATE successful', result);
         res.sendStatus(201);
