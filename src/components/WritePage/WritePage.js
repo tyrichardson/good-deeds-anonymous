@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import ReactDOM from 'react-dom';
 
 import Nav from '../../components/Nav/Nav';
 
@@ -35,6 +36,7 @@ class WritePage extends Component {
   }
   handleClick = (event) => {
     event.preventDefault();
+    ReactDOM.findDOMNode(this.refs.textarea).focus();
     console.log('click publish button:', this.state.newStory);
     this.props.dispatch({
       type: "POST_STORY",
@@ -62,7 +64,7 @@ class WritePage extends Component {
             Welcome to the Writing page, { this.props.user.userName }!
           </h1>
           <div>
-            <textarea value={this.state.newStory} onChange={this.handleChange} autoFocus row="4" cols="12" placeholder="type your story here">
+            <textarea ref="textarea" value={this.state.newStory} onChange={this.handleChange} autoFocus row="4" cols="12" placeholder="type your story here">
             </textarea>
           </div>
           <button type="submit" onClick={this.handleClick}>Publish</button>
@@ -70,7 +72,7 @@ class WritePage extends Component {
           <button
             onClick={this.logout}
           >
-            Log Out
+            Sign Out
           </button>
         </div>
       );

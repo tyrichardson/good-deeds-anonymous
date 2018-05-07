@@ -53,7 +53,7 @@ class ReadPageWriter extends Component {
           <button
             onClick={this.logout}
           >
-            Log Out
+            Sign Out
           </button>
         </div>
       );
