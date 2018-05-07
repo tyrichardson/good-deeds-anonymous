@@ -36,6 +36,8 @@ class WritePage extends Component {
   }
   handleClick = (event) => {
     event.preventDefault();
+    alert("Need to do some editing? Click on Archive");
+    //prompt CANCEL sets newStory state to empty default; doesn't save work.
     ReactDOM.findDOMNode(this.refs.textarea).focus();
     console.log('click publish button:', this.state.newStory);
     this.props.dispatch({
