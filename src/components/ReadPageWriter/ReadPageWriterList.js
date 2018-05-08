@@ -1,4 +1,4 @@
-//this generates the DOM display of the individual stories mapped from the array in redux State for public landing page and readWriter page
+//this generates the DOM display of the individual stories mapped from the array in redux State for public landing page and readWriter page. The logged-in user can mark a story as a Favorite here. It is a post of the story_id and writer_id to a table used to link the Story and Writer tables of the db, not a boolean.
 
 import React, { Component } from 'react';
 import { connect } from 'react-redux';

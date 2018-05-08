@@ -1,3 +1,4 @@
+//This defines the components/views/client-side routing/title for the header...
 import React from 'react';
 import {
   BrowserRouter as Router,

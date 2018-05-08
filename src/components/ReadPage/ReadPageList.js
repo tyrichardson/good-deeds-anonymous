@@ -1,3 +1,4 @@
+//this captures each item from the array that is mapped over and returns each separate array element as an item rendered on the DOM
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 

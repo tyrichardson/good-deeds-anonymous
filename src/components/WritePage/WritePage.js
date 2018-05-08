@@ -1,3 +1,4 @@
+//This allows logged-in user to write and post a new story to the database (good_deeds on PostgreSQL). Their new story subsequently appears as the first story on the ReadPageWriter.js view.
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import ReactDOM from 'react-dom';

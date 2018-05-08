@@ -23,6 +23,7 @@ class LoginPage extends Component {
     this.props.dispatch(clearError());
   }
 
+  //When a user logs in, they are redirected to the "write view", WritePage.js
   componentWillReceiveProps(nextProps) {
     if (nextProps.user.userName) {
       this.props.history.push('/write');

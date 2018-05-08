@@ -1,4 +1,4 @@
-// The ArchivePage has two panes. The pane on the left is a list of the stories published by the logged-in user only, from which the logged-in user can select to Edit or Delete stories they have published. The pane on the right is a list of stories the logged in user has Favorited; the logged-in use can select to Unfavorite items on this list.
+// The ArchivePage has two panes. The pane on the left is a list of the stories published by the logged-in user only, from which the logged-in user can select to Edit or Delete stories they have published. The pane on the right is a list of stories the logged in user has Favorited; the logged-in use can select to Unfavorite items on this list. In the future, there will be a pane for an Admin to follow up on stories for possible deletion, stories flagged as inappropriate by x number of users.
 
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
@@ -18,6 +18,7 @@ const mapStateToProps = state => ({
 });
 
 class ArchivePage extends Component {
+  
   componentDidMount() {
     this.props.dispatch({ type: USER_ACTIONS.FETCH_USER });
     this.props.dispatch({

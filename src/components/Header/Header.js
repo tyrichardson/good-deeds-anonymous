@@ -1,5 +1,7 @@
 import React from 'react';
 
+//title comes from App.js
+
 const Header = ({ title }) => (
   <div className="instructions">
     <div>

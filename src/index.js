@@ -1,3 +1,4 @@
+//This provides the Redux store, defines middleware, and wraps the App in the Provider
 import React from 'react';
 import ReactDOM from 'react-dom';
 import { createStore, applyMiddleware } from 'redux';

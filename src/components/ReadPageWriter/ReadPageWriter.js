@@ -1,4 +1,4 @@
-//The ReadPageWriter is the reading page for a logged-in user
+//The ReadPageWriter is the reading page for a logged-in user. It uses the data from getSaga and getResponseReducer.
 
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
