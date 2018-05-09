@@ -7,6 +7,10 @@ import {
   Switch,
 } from 'react-router-dom';
 
+import 'typeface-roboto';
+import './styles/main.css';
+
+//These are components
 import Header from './components/Header/Header';
 import LoginPage from './components/LoginPage/LoginPage';
 import RegisterPage from './components/RegisterPage/RegisterPage';
@@ -14,12 +18,42 @@ import RegisterPage from './components/RegisterPage/RegisterPage';
 import ReadPage from './components/ReadPage/ReadPage';
 import ReadPageWriter from './components/ReadPageWriter/ReadPageWriter';
 import WritePage from './components/WritePage/WritePage';
-
 import ArchivePage from './components/ArchivePage/ArchivePage';
 
-import './styles/main.css';
+//These are material-ui@next items
+import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
+import CssBaseline from 'material-ui/CssBaseline';
+// import { createMuiTheme } from 'material-ui/styles';
+
+// const muiTheme = createMuiTheme({
+//   fontFamily: 'Roboto, sans-serif',
+//   palette: {
+//     primary: {
+//       light: '#b2ebf2',
+//       main: '#e5ffff',
+//       dark: '#81b9bf',
+//     },
+//     secondary: {
+//       light: '#ffeb3b',
+//       main: '#ffff72',
+//       dark: '#c8b900',
+//     },
+//   },
+// });
+
+// const styles = {
+//   root: {       
+//       display: 'flex',
+//       flexWrap: 'wrap',
+//       justifyContent: 'space-around',
+//       justify: 'center',
+//       alignItems: 'center',
+//   }
+// }
 
 const App = () => (
+  <React.Fragment>
+  <CssBaseline />
   <div>
     <Header title="Good Deeds Anonymous" />
     <Router>
@@ -59,6 +93,7 @@ const App = () => (
       </Switch>
     </Router>
   </div>
+  </React.Fragment>
 );
 
 export default App;

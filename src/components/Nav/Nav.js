@@ -16,44 +16,50 @@ class Nav extends Component {
 render(){
 
   return(
-  <div className="navbar">
-    <div>
+  <div id="headerGroup">  
+    <div className="publicNavBar">
+      <div>
         <ul>
-        <li>
-          <Link to="/read">
-            Public Reading Page
-          </Link>
-        </li>
+          <li>
+            <Link to="/read">
+              Public Reading Page
+            </Link>
+          </li>
+          </ul>
+        <ul>
+          <li>
+              <Link to="/login">
+                Sign In
+              </Link>
+            </li>
+            <li onClick={this.logout}>
+              <Link to="/home">
+                Sign Out
+              </Link>
+            </li>
         </ul>
-      <ul>
-        <li>
-            <Link to="/login">
-              Sign In
+      </div>
+    </div>
+    <div className="writerNavBar">
+      <div>
+        <ul>
+          <li>
+            <Link to="/readWriter">
+              Read
             </Link>
           </li>
-          <li onClick={this.logout}>
-            <Link to="/home">
-              Sign Out
+          <li>
+            <Link to="/write">
+              Write
             </Link>
           </li>
-      </ul>
-      <ul>
-        <li>
-          <Link to="/readWriter">
-            Read
-          </Link>
-        </li>
-        <li>
-          <Link to="/write">
-            Write
-          </Link>
-        </li>
-        <li>
-          <Link to="/archive">
-            Archive
-          </Link>
-        </li>
-      </ul>
+          <li>
+            <Link to="/archive">
+              Archive
+            </Link>
+          </li>
+        </ul>
+      </div>
     </div>
   </div>
 );

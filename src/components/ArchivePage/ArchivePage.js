@@ -55,28 +55,29 @@ class ArchivePage extends Component {
     if (this.props.user.userName) {
       content = (
         <div>
-          <div>
-          <h3
-            id="archive"
-          >
-            Welcome to your Archive, { this.props.user.userName }!
-          </h3>
+
+          <div id="archive">
+            <h3>
+              Welcome to your Archive, { this.props.user.userName }!
+            </h3>
           </div>
-          <h4>Your Stories</h4>
-          <div id="writerStories">
-          { archivePageList }
-          </div>
-          <div id="favorites">
+
+          <section id="writerStories">
+            <h4>Your Stories</h4>
+            { archivePageList }
+          </section>
+
+          <section id="favorites">
             <h4>Your Favorites</h4>
-          { favoritesPageList }
-          </div>
-          <div>
-          <button
-            onClick={this.logout}
-          >
-            Sign Out
-          </button>
-          </div>
+            { favoritesPageList }
+          </section>
+
+            <div>
+              <button
+                onClick={this.logout}>
+              Sign Out
+              </button>
+            </div>
         </div>
       );
     } 

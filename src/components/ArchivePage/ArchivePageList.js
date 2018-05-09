@@ -54,18 +54,18 @@ class ArchivePageList extends Component {
     if (this.state.editing) {
       return (
         <div>
-           <textarea ref="newText" defaultValue={this.props.story.story}></textarea>
+          <textarea ref="newText" defaultValue={this.props.story.story}></textarea>
           <button onClick={this.handleSave}>Save</button>
           <button onClick={this.handleEdit}>Cancel</button>
-      </div>
+        </div>
       )
     } else {
       return (
         <div>
-        <p>{this.props.story.story}</p>
-        <button onClick={this.handleDelete}>Delete</button>
-        <button onClick={this.handleEdit}>Edit</button>
-      </div>
+         <p>{this.props.story.story}</p>
+          <button onClick={this.handleDelete}>Delete</button>
+          <button onClick={this.handleEdit}>Edit</button>
+        </div>
       )
     }
   }
