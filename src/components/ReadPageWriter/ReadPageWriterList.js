@@ -6,10 +6,12 @@ import { connect } from 'react-redux';
 const mapStateToProps = state => ({
   state
 });
-
+ 
 class ReadPageWriterList extends Component {
 
   handleClickFavorite = (event) => {
+    event.preventDefault();
+    alert("To see your Favorites, click Archive")
     console.log('clicked favorite button', this.props.story);
     this.props.dispatch({
       type: 'ADD_FAVORITE',

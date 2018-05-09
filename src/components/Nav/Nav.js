@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 import { triggerLogout } from '../../redux/actions/loginActions';
 import { connect } from 'react-redux';
-import { USER_ACTIONS } from '../../redux/actions/userActions';
+
 
 const mapStateToProps = state => ({
   user: state.user,
