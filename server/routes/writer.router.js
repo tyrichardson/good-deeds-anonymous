@@ -1,3 +1,4 @@
+//This handles all routes for logged-in users
 const express = require('express');
 const pool = require('../modules/pool');
 const router = express.Router();
@@ -46,7 +47,7 @@ router.get('/favorites', (req, res) => {
       pool.query(queryText, [req.user.id])
       .then((result) => {
         res.send(result.rows);
-        // console.log('writerRoute editStory result.rows:', result.rows);
+        console.log('writerRoute editStory result.rows:', result.rows);
       })
       .catch((error) => {
         res.sendStatus(500);
@@ -65,7 +66,7 @@ router.post('/', (req, res) => {
     .then((result) => {
       res.sendStatus(201);
     }).catch((error) => {
-      // console.log('post got to the catch in backend router:', error)
+      console.log('post got to the catch in backend router:', error)
       res.sendStatus(500);
     })
     } else {
@@ -104,7 +105,7 @@ router.delete('/:id', (req, res) => {
       console.log('DELETE successful', result);
         res.sendStatus(200);
     }).catch((error) => {
-      // console.log('error in DELETE, server side', error);
+      console.log('error in DELETE, server side', error);
       res.sendStatus(500);
     })
   } else {
@@ -124,7 +125,7 @@ router.delete('/favorite/:id', (req, res) => {
       console.log('DELETE successful', result);
         res.sendStatus(200);
     }).catch((error) => {
-      // console.log('error in DELETE, server side', error);
+      console.log('error in DELETE, server side', error);
       res.sendStatus(500);
     })
   } else {
@@ -136,7 +137,7 @@ router.delete('/favorite/:id', (req, res) => {
  UPDATE for authenticated users to edit a story they published
  **/
 router.put('/:id', (req, res) => {
-  console.log('authenticated user UPDATE server route for edit in Archive Page');
+  // console.log('authenticated user UPDATE server route for edit in Archive Page');
   if(req.isAuthenticated()) {
     let queryText = 'UPDATE story SET story = $1 WHERE id = $2 AND writer_id = $3;';
     pool.query(queryText, [req.body.story, req.params.id, req.user.id])
@@ -151,7 +152,5 @@ router.put('/:id', (req, res) => {
     res.sendStatus(403);
   }
 });
-
-// Need routes for adding favorites from writer's read page and for updating (deleting) favorites from archive page
 
 module.exports = router;

@@ -25,6 +25,7 @@ app.use(passport.initialize());
 app.use(passport.session());
 
 /* Routes */
+//user is for login/reg; reader is for unauthenticated landing page; writer is for all logged-in user views
 app.use('/api/user', userRouter);
 app.use('/api/reader', readerRouter);
 app.use('/api/writer', writerRouter);

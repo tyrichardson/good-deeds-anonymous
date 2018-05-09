@@ -41,6 +41,10 @@ class ArchivePageList extends Component {
         story: this.state.newText, id: this.props.story.id, writer_id: this.props.story.writer_id
       };
       console.log('newEdit for PUT payload:', newEdit);
+      this.props.dispatch({
+        type: "EDIT_STORY_PUT",
+        payload: newEdit
+      });
     })
   }
   
