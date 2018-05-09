@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
 
+
 class RegisterPage extends Component {
   constructor(props) {
     super(props);
@@ -74,8 +75,8 @@ class RegisterPage extends Component {
     return (
       <div>
         {this.renderAlert()}
-        <form className="reg" onSubmit={this.registerUser}>
-          <h3>Register User</h3>
+        <form onSubmit={this.registerUser}>
+          <h3>Register</h3>
           <div>
             <label htmlFor="username">
               Username:
@@ -112,10 +113,13 @@ class RegisterPage extends Component {
           </div>
           <div>
             <input
+              id="regButton"
               type="submit"
               name="submit"
               value="Register"
             />
+          </div>
+          <div>
             <p><Link to="/home">Cancel</Link></p>
           </div>
         </form>
