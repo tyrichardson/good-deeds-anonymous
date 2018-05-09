@@ -1,7 +1,21 @@
-import React from 'react';
+import React, { Component } from 'react';
 import { Link } from 'react-router-dom';
+import { triggerLogout } from '../../redux/actions/loginActions';
+import { connect } from 'react-redux';
+import { USER_ACTIONS } from '../../redux/actions/userActions';
 
-const Nav = () => (
+const mapStateToProps = state => ({
+  user: state.user,
+});
+
+class Nav extends Component {
+  logout = () => {
+    this.props.dispatch(triggerLogout());
+  }
+
+render(){
+
+  return(
   <div className="navbar">
     <div>
         <ul>
@@ -15,6 +29,11 @@ const Nav = () => (
         <li>
             <Link to="/login">
               Sign In
+            </Link>
+          </li>
+          <li onClick={this.logout}>
+            <Link to="/home">
+              Sign Out
             </Link>
           </li>
       </ul>
@@ -38,5 +57,6 @@ const Nav = () => (
     </div>
   </div>
 );
-
-export default Nav;
+}
+}
+export default connect(mapStateToProps)(Nav);
