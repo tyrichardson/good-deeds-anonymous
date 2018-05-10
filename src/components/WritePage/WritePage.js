@@ -2,6 +2,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import ReactDOM from 'react-dom';
+import swal from 'sweetalert';
 
 import Nav from '../../components/Nav/Nav';
 
@@ -37,7 +38,7 @@ class WritePage extends Component {
   }
   handleClick = (event) => {
     event.preventDefault();
-    alert("Click Read to see your story. Click Archive to edit your story.");
+    swal("Click Read to see your story. Click Archive to edit your story.");
     ReactDOM.findDOMNode(this.refs.textarea).focus();
     console.log('click publish button:', this.state.newStory);
     this.props.dispatch({
