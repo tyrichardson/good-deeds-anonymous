@@ -62,8 +62,6 @@ class ArchivePage extends Component {
             </h3>
           </div>
 
-          <div></div>
-
           <section id="writerStories">
             <h4>Your Stories</h4>
             { archivePageList }

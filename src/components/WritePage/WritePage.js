@@ -37,7 +37,7 @@ class WritePage extends Component {
   }
   handleClick = (event) => {
     event.preventDefault();
-    alert("Want to edit one of your stories? Click Archive");
+    alert("Click Read to see your story. Click Archive to edit your story.");
     ReactDOM.findDOMNode(this.refs.textarea).focus();
     console.log('click publish button:', this.state.newStory);
     this.props.dispatch({
