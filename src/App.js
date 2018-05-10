@@ -21,35 +21,7 @@ import WritePage from './components/WritePage/WritePage';
 import ArchivePage from './components/ArchivePage/ArchivePage';
 
 //These are material-ui@next items
-import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import CssBaseline from 'material-ui/CssBaseline';
-import { createMuiTheme } from 'material-ui/styles';
-
-const muiTheme = createMuiTheme({
-  fontFamily: 'Roboto, sans-serif',
-  palette: {
-    primary: {
-      light: '#b2ebf2',
-      main: '#e5ffff',
-      dark: '#81b9bf',
-    },
-    secondary: {
-      light: '#ffeb3b',
-      main: '#ffff72',
-      dark: '#c8b900',
-    },
-  },
-});
-
-// const styles = {
-//   root: {       
-//       display: 'flex',
-//       flexWrap: 'wrap',
-//       justifyContent: 'space-around',
-//       justify: 'center',
-//       alignItems: 'center',
-//   }
-// }
 
 const App = () => (
   <React.Fragment>

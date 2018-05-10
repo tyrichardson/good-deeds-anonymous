@@ -24,6 +24,7 @@ class ReadPageWriterList extends Component {
     return (
       <div id="readStory">
           <div>{this.props.story.story}</div>
+          <h6>From: {this.props.story.state_usa}</h6>
           <button onClick={this.handleClickFavorite}>Favorite</button>
       </div>
     );
