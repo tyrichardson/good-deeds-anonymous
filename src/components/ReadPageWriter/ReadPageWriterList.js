@@ -2,6 +2,8 @@
 
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
+import swal from 'sweetalert';
+
 
 const mapStateToProps = state => ({
   state
@@ -11,7 +13,7 @@ class ReadPageWriterList extends Component {
 
   handleClickFavorite = (event) => {
     event.preventDefault();
-    alert("To see your Favorites, click Archive")
+    swal("To see your Favorites, click Archive");
     console.log('clicked favorite button', this.props.story);
     this.props.dispatch({
       type: 'ADD_FAVORITE',
