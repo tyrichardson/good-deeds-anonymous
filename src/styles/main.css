@@ -4,8 +4,10 @@ body {
 }
 .container {
     display: flex;
-    flex-direction: row;
+    flex-direction: column;
+    width: 100%;
     background-color: lightskyblue;
+    margin: 0;
 }
 div {
     display: flex;
@@ -33,7 +35,7 @@ div {
     font-weight: 700;
 }
 .header {
-    width: 100%;
+    width: 80%;
     background-color: lightskyblue;
     padding: .01em 1em;
     color: rgba(255, 247, 0, 0.817);

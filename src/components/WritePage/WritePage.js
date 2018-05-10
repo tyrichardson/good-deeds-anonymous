@@ -63,7 +63,7 @@ class WritePage extends Component {
 
           <div id="welcome">
             <h3>
-              Welcome to the Writing page, { this.props.user.userName }!
+              Welcome to the Write page, { this.props.user.userName }!
             </h3>
           </div>
 

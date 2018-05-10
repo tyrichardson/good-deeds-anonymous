@@ -58,7 +58,7 @@ class ArchivePage extends Component {
 
           <div id="welcome">
             <h3>
-              Welcome to your Archive, { this.props.user.userName }!
+              Welcome to your Archive page, { this.props.user.userName }!
             </h3>
           </div>
 
