@@ -32,16 +32,11 @@ render(){
                 Sign In
               </Link>
             </li>
-            <li onClick={this.logout}>
-              <Link to="/home">
-                Sign Out
-              </Link>
-            </li>
         </ul>
       </div>
     </div>
     <div className="writerNavBar">
-      <div>
+      
         <ul>
           <li>
             <Link to="/readWriter">
@@ -58,8 +53,13 @@ render(){
               Archive
             </Link>
           </li>
+          <li onClick={this.logout}>
+              <Link to="/home">
+                Sign Out
+              </Link>
+            </li>
         </ul>
-      </div>
+      
     </div>
   </div>
 );

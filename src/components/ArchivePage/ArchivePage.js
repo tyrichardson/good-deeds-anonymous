@@ -56,11 +56,13 @@ class ArchivePage extends Component {
       content = (
         <div>
 
-          <div id="archive">
+          <div id="welcome">
             <h3>
               Welcome to your Archive, { this.props.user.userName }!
             </h3>
           </div>
+
+          <div></div>
 
           <section id="writerStories">
             <h4>Your Stories</h4>
@@ -71,13 +73,6 @@ class ArchivePage extends Component {
             <h4>Your Favorites</h4>
             { favoritesPageList }
           </section>
-
-            <div>
-              <button
-                onClick={this.logout}>
-              Sign Out
-              </button>
-            </div>
         </div>
       );
     } 

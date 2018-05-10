@@ -1,13 +1,32 @@
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background-color: lightskyblue;
+}
+.container {
+    display: flex;
+    flex-direction: row;
+    background-color: lightskyblue;
 }
 div {
     display: flex;
     flex-flow: row wrap;
     margin: .1em;
 }
+#readStory  {
+    border: black .01em solid;
+    margin: 1em;
+    width: 100%;
+    padding: 1em;
+}
+#archiveStory  {
+    border: black .01em solid;
+    margin: .5em;
+    width: 90%;
+    padding: 1em;
+}
 #headerGroup {
     position: sticky; top: .01px;
+    width: 100%;
 }
 .header h1 {
     font-size: 150%;
@@ -15,25 +34,30 @@ div {
 }
 .header {
     width: 100%;
-    background-color: #00acb0;
+    background-color: lightskyblue;
     padding: .01em 1em;
-    color: #ece7e7;
+    color: rgba(255, 247, 0, 0.817);
 }
 .publicNavBar {
     width: 100%;
-    background-color: #00acb0;
+    background-color: lightskyblue;
     padding: .01em 1em;
+    margin: 0;
 }
 .writerNavBar {
     width: 100%;  
-    background-color: #00acb0;
+    background-color: lightskyblue;
     padding: .01em 1em;
+    margin: 0;
+}
+#welcome {
+    width: 100%;
+    padding: 0 0 0 1em;
 }
 section {
-    display: flex;
-    flex-flow: column wrap;
-    border: black 1px solid;
+    width: 45%;
     margin: .1em;
+    padding: 1em;
 }
 form {
     background-color: #dbd5d5;
@@ -43,9 +67,9 @@ form {
     padding: .01em 1em;
     border-radius: 2px;
 }
-#regButton {
-    background-color:  #00acb0;
-    font-size: 1em;
+button, #regButton, #loginButton, #publishButton {
+    background-color:  rgba(255, 247, 0, 0.500);;
+    font-size: .60em;
     border-radius: 10px;
     box-shadow: .2em .2em grey;
 }
@@ -87,10 +111,12 @@ li a {
     padding: .5em .8em;
     text-decoration: none;
 }
-/* Change the link color to #111 (black) on hover */
 li a:hover {
     text-decoration: underline;
-    color: #eee;
+    color: rgba(255, 247, 0, 0.817);;
+}
+li a:active {
+    color: rgba(255, 247, 0, 0.817);
 }
 button {
     margin: .5em;
@@ -98,7 +124,7 @@ button {
 #storyTextArea {
     width: 80%;
     height: 10em;
-    margin: 1.5em .5em;
+    margin: .1em 5em 1em .5em;
     padding: .01em 1em;
     border-radius: 2px;
 }

@@ -45,20 +45,15 @@ class ReadPageWriter extends Component {
       content = (
         <div>
 
-          <div id="readWriter">
+          <div id="welcome">
             <h3>
               Welcome to the Writer's Reading page, {this.props.user.userName }!
             </h3>
           </div>
 
-          <section>
+          <div>
             { readPageWriterList }
-          </section>
-
-            <button onClick={this.logout}>
-              Sign Out
-            </button>
-            
+          </div>
         </div>
       );
     } 

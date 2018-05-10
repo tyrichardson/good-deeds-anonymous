@@ -20,8 +20,8 @@ class FavoritesPageList extends Component {
   render() {
     
     return (
-      <div>
-          <p>{this.props.story.story}</p>
+      <div id="archiveStory">
+          {this.props.story.story}
           <button onClick={this.handleClickUpdate}>Remove Favorite</button>
       </div>
     );

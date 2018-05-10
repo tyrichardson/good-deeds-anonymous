@@ -22,8 +22,8 @@ class ReadPageWriterList extends Component {
   render() {
     
     return (
-      <div>
-          <p>{this.props.story.story}</p>
+      <div id="readStory">
+          <div>{this.props.story.story}</div>
           <button onClick={this.handleClickFavorite}>Favorite</button>
       </div>
     );

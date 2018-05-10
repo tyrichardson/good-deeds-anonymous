@@ -59,22 +59,23 @@ class WritePage extends Component {
 
     if (this.props.user.userName) {
       content = (
-        <div>
-          <h3
-            id="welcome"
-          >
-            Welcome to the Writing page, { this.props.user.userName }!
-          </h3>
+        <div className="container">
+
+          <div id="welcome">
+            <h3>
+              Welcome to the Writing page, { this.props.user.userName }!
+            </h3>
+          </div>
+
           <div id="storyTextArea">
             <textarea ref="textarea" value={this.state.newStory} onChange={this.handleChange} autoFocus row="4" cols="12" placeholder="type your story here">
             </textarea>
           </div>
-          <button type="submit" onClick={this.handleClick}>Publish</button>
-          <br />
-          <button
-            onClick={this.logout}>
-            Sign Out
-          </button>
+
+          <div id="publishDiv">
+            <button id="publishButton" type="submit" onClick={this.handleClick}>Publish</button>
+          </div>
+
         </div>
       );
     }

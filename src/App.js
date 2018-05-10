@@ -54,7 +54,7 @@ import CssBaseline from 'material-ui/CssBaseline';
 const App = () => (
   <React.Fragment>
   <CssBaseline />
-  <div>
+  <div className="container">
     <Header title="Good Deeds Anonymous" />
     <Router>
       <Switch>
