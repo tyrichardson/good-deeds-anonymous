@@ -44,6 +44,7 @@ For next iteration:
 ~Writers will be able to update their state of residence; story can be sorted by state.
 
 Entity Relationship Diagram:
+
 ![ERD](documentation/images/ERD_GoodDeedsAnonymous.png)
 
 Technologies used:
