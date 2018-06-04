@@ -1,7 +1,57 @@
-# Express/Passport with React
-This version uses React to control the login requests and redirection in coordination with client-side routing.
+GOOD DEEDS ANONYMOUS
 
-We **STONGLY** recommend following these instructions carefully. It's a lot, and will take some time to set up, but your life will be much easier this way in the long run.
+Application Purpose:
+A little emotional uplift! There are good people, living among us, doing good deeds for others simply because they can. And they are us! Not looking for credit, not looking for the limelight,  simply wanting share our stories. We can do that on Good Deeds Anonymous. By sharing our stories and reading those of others, we can create a quiet feedback loop that benefits ourselves, others, and the communities we share.
+
+Application Overview:
+Good Deeds Anonymous (GDA) is a Single Page Application promoting the creation and reading of Stories describing a good deed done, sorted by State (USA).
+
+Each Story is a piece of user-generated content from a Writer, a registered/logged-in user. All visitors to the site are Readers. Stories are sorted by each Writer’s State of Residence. In a subsequent update, an Admin role will be added for the purpose of removing Stories flagged as inappropriate by registered users.
+
+Views/Features:
+
+Read (not logged in):
+The Read view is the Landing page/Home page of Good Deeds Anonymous. The first story is a simple introduction to the site, its purpose, and its functionality. All visitors are Readers. Readers can go scroll through all the stories. All visitors are encouraged to become Writers via the Sign-in button in the navigation bar. 
+
+Sign-in:
+The Sign-in view allows a visitor to register as a Writer or, if already a Writer, they can login. The Read button remains active, so the user go back if they decide not to registration or login. If a registration or login is submitted and is successful, the Write view displays.
+
+Write:
+The Write view allows a Writer to type and Share a Story. Upon clicking Publish, a prompt is displayed letting the user know their story will be displayed on the Read and Archive pages.
+
+Read (logged in):
+The Read view is always accessible for a logged-in Writer. Unlike a Reader, a Writer can mark Stories as Favorites.
+
+My Archive:
+The My Archive view displays two lists: a list of the Writer’s published stories, which allows them to Edit or Delete Stories, and a list of the Writer’s Favorites, which allows them to unfavorite an item, which removes it from their Favorites list.
+
+Routes:
+Registration/Login
+GET all for Read view sorted by most recent
+POST for new Story from Write view
+UPDATE for adding Favorites
+UPDATE for removing Favorites
+GET my stories (logged in user)
+GET specific story by id
+UPDATE for displaying and editing a published Story in Write view
+DELETE for deleting a Story
+
+For next iteration/before sharing:
+~Writers will be able to flag Stories as inappropriate, alerting an Admin to decide whether or not to delete the offending Story. An Admin view will be added to the Archive page at that time.
+~Writers will be able to update their state of residence; story can be sorted by state.
+
+Entity Relationship Diagram:
+![ERD](./documentation/images/ERD_Good Deeds Anonymous.png)
+
+Technologies used:
+React
+Redux
+Material UI
+Node
+Express
+Passport
+PostgreSQL
+Heroku
 
 ## Prerequisites
 
@@ -13,45 +63,37 @@ Before you get started, make sure you have the following software installed on y
 
 ## Create database and table
 
-Create a new database called `good_deeds` and create a `writer` table:
+Create a new database called `good_deeds` and create:
 
 ```SQL
 CREATE TABLE writer (
     id SERIAL PRIMARY KEY,
     username VARCHAR (80) UNIQUE NOT NULL,
-    password VARCHAR (1000) NOT NULL
+    password VARCHAR (1000) NOT NULL,
+    state_usa VARCHAR (80) NOT NULL
+);
+
+CREATE TABLE story (
+	id SERIAL PRIMARY KEY,
+	story VARCHAR (1000) NOT NULL,
+	writer_id integer REFERENCES writer NOT NULL,
+	inappropriate VARCHAR (20) NOT NULL
+);
+
+CREATE TABLE favorite (
+	id SERIAL PRIMARY KEY,
+	story_id integer REFERENCES story UNIQUE NOT NULL,
+	writer_id integer REFERENCES writer UNIQUE NOT NULL
 );
 ```
-
-If you would like to name your database something else, you will need to change `prime_app` to the name of your new database name in `server/modules/pool.js`
-
-## Download (Don't Clone) This Repository
-
-* Don't Fork or Clone. Instead, click the `Clone or Download` button and select `Download Zip`.
-* Unzip the project and start with the code in that folder.
-* Create a new GitHub project and push this code to the new repository.
 
 ## Development Setup Instructions
 
 * Run `npm install`
-* Create a `.env` file at the root of the project and paste this line into the file:
-    ```
-    SERVER_SESSION_SECRET=superDuperSecret
-    ```
-    While you're in your new `.env` file, take the time to replace `superDuperSecret` with some long random string like `25POUbVtx6RKVNWszd9ERB9Bb6` to keep your application secure. Here's a site that can help you: [https://passwordsgenerator.net/](https://passwordsgenerator.net/). If you don't do this step, create a secret with less than eight characters, or leave it as `superDuperSecret`, you will get a warning.
-* Start postgres if not running already by using `brew services start postgresql`
-* Run `npm run dev`
+* Start postgres if not running already (`brew services start postgresql`)
+* Run `npm run client`
+* Run `npm run server`
 * Navigate to `localhost:3000`
-
-## Debugging
-
-To debug, you will need to run the client-side separately from the server. Start the client by running the command `npm run dev:client`. Start the debugging server by selecting the Debug button.
-
-![VSCode Toolbar](documentation/images/vscode-toolbar.png)
-
-Then make sure `Launch Program` is selected from the dropdown, then click the green play arrow.
-
-![VSCode Debug Bar](documentation/images/vscode-debug-bar.png)
 
 ## Linting
 
@@ -73,13 +115,3 @@ This is the build Heroku will run, but during development, you will likely not n
 * `public/` contains static assets for the client-side
 * `build/` after you build the project, contains the transpiled code from `src/` and `public/` that will be viewed on the production site
 * `server/` contains the Express App
-
-## Deployment
-
-1. Create a new Heroku project
-1. Link the Heroku project to the project GitHub Repo
-1. Create an Herkoku Postgres database
-1. Connect to the Heroku Postgres database from Postico
-1. Create the necessary tables
-1. Add an environment variable for `SERVER_SESSION_SECRET` with a nice random string for security
-1. In the deploy section, select manual deploy
