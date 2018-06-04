@@ -1,9 +1,11 @@
 GOOD DEEDS ANONYMOUS
 
 Application Purpose:
+
 A little emotional uplift! There are good people, living among us, doing good deeds for others simply because they can. And they are us! Not looking for credit, not looking for the limelight,  simply wanting share our stories. We can do that on Good Deeds Anonymous. By sharing our stories and reading those of others, we can create a quiet feedback loop that benefits ourselves, others, and the communities we share.
 
 Application Overview:
+
 Good Deeds Anonymous (GDA) is a Single Page Application promoting the creation and reading of Stories describing a good deed done, sorted by State (USA).
 
 Each Story is a piece of user-generated content from a Writer, a registered/logged-in user. All visitors to the site are Readers. Stories are sorted by each Writer’s State of Residence. In a subsequent update, an Admin role will be added for the purpose of removing Stories flagged as inappropriate by registered users.
@@ -36,12 +38,13 @@ GET specific story by id
 UPDATE for displaying and editing a published Story in Write view
 DELETE for deleting a Story
 
-For next iteration/before sharing:
+For next iteration
+:
 ~Writers will be able to flag Stories as inappropriate, alerting an Admin to decide whether or not to delete the offending Story. An Admin view will be added to the Archive page at that time.
 ~Writers will be able to update their state of residence; story can be sorted by state.
 
 Entity Relationship Diagram:
-![ERD](./documentation/images/ERD_Good Deeds Anonymous.png)
+![ERD](documentation/images/ERD_Good Deeds Anonymous.png)
 
 Technologies used:
 React
