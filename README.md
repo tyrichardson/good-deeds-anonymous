@@ -38,13 +38,13 @@ GET specific story by id
 UPDATE for displaying and editing a published Story in Write view
 DELETE for deleting a Story
 
-For next iteration
-:
+For next iteration:
+
 ~Writers will be able to flag Stories as inappropriate, alerting an Admin to decide whether or not to delete the offending Story. An Admin view will be added to the Archive page at that time.
 ~Writers will be able to update their state of residence; story can be sorted by state.
 
 Entity Relationship Diagram:
-![ERD](documentation/images/ERD_Good Deeds Anonymous.png)
+![ERD](documentation/images/ERD_GoodDeedsAnonymous.png)
 
 Technologies used:
 React
