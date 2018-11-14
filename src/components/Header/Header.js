@@ -27,7 +27,7 @@ const Header = ({ title }) => (
             size: 40,             // the size of each button (INTEGER)
  
             // OPTIONAL PARAMETERS
-            url: '', // (defaults to current url)
+            url: 'https://mighty-ridge-81043.herokuapp.com/', // (defaults to current url)
             image: '',  // (defaults to og:image or twitter:image)
             description: 'Good Deeds Anonymous',       // (defaults to og:description or twitter:description)
             title: 'Good Deeds Anonymous',            // (defaults to og:title or twitter:title)
