@@ -24,7 +24,7 @@ import ArchivePage from './components/ArchivePage/ArchivePage';
 import CssBaseline from 'material-ui/CssBaseline';
 
 const App = () => (
-  <React.Fragment>
+ <React.Fragment>
   <CssBaseline />
     <div className="container">
 
@@ -67,7 +67,7 @@ const App = () => (
     </Router>
   </div>
   
-  </React.Fragment>
+</React.Fragment>
 );
 
 export default App;

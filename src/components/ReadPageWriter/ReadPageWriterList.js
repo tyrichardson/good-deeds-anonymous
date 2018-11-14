@@ -3,6 +3,7 @@
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 import swal from 'sweetalert';
+import {InlineShareButtons} from 'sharethis-reactjs';
 
 
 const mapStateToProps = state => ({

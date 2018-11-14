@@ -22,6 +22,7 @@ class FavoritesPageList extends Component {
     return (
       <div id="archiveStory">
           {this.props.story.story}
+          <br></br>
           <button onClick={this.handleClickUpdate}>Remove Favorite</button>
       </div>
     );

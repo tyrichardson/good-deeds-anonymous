@@ -63,6 +63,7 @@ class ArchivePageList extends Component {
       return (
         <div id="archiveStory">
           {this.props.story.story}
+          <br></br>
           <button onClick={this.handleDelete}>Delete</button>
           <button onClick={this.handleEdit}>Edit</button>
         </div>
