@@ -1,7 +1,7 @@
 body {
     font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
     background-color: lightskyblue;
-    font-size: 150%;
+    font-size: 125%;
 }
 .container {
     display: flex;
