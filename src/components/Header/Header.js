@@ -37,6 +37,11 @@ const Header = ({ title }) => (
           }}
         />
     </div>
+    <div>
+      <p>We all benefit from hearing about good things we do for each other.</p>
+      <p>To share your stores, click Sign In and register -- anonymously.</p>
+    </div>
+
   </div>
 );
 
